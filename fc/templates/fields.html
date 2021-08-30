@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="static/field_style/assets/css/font.css">
 <link rel="stylesheet" href="static/field_style/assets/css/animate.css">
 <link rel="stylesheet" href="static/field_style/assets/css/structure.css">
-
+<!-- 
 <script src="static/field_style/assets/js/html5shiv.min.js"></script>
 <script src="static/field_style/assets/js/respond.min.js"></script>
-
+ -->
 
  {{ moment.include_moment() }}
 
@@ -73,15 +73,18 @@
            
             <li ><a href="{{url_for('home')}}"><i class="fa fa-home" style="color:Violet; font-size: 20px;margin-top:-9px"></i>   Home</a></li>
             <li></li>
-            <li><a href="#"><i class="fa fa-users" style="color:violet; font-size: 20px;margin-top:-9px"></i> Network</a></li>
-            <li><a href="#"><i class="fa fa-comment" style="color:violet; font-size: 20px;margin-top:-9px"></i> Message</a></li>
-            <li><a href="{{url_for('profile')}}"><i class="fa fa-user" style="color:violet; font-size: 20px;margin-top:-9px"></i> Account</a></li>
-             <li><a href="{{url_for('logout')}}"><i class="fa fa-sign-out" style="color:violet; font-size: 20px;margin-top:-9px"></i> Logout</a></li>
+            <li><a href="#"><i class="fa fa-users" style="color:Violet; font-size: 20px;margin-top:-9px"></i> Network</a></li>
+            <li><a href="#"><i class="fa fa-comment" style="color:Violet; font-size: 20px;margin-top:-9px"></i> Message</a></li>
+            <li><a href="{{url_for('profile')}}"><i class="fa fa-user" style="color:Violet; font-size: 20px;margin-top:-9px"></i> Account</a></li>
+             <li><a href="{{url_for('logout')}}"><i class="fa fa-sign-out" style="color:Violet; font-size: 20px;margin-top:-9px"></i> Logout</a></li>
           </ul>
         </div>
       </div>
-    </nav>
-  
+    </nav> 
+    <!-- <form id="searchForm">
+      <input type="text" placeholder="Search...">
+      <input type="submit" value="">
+    </form> -->
   </div>
 </header>
 
@@ -307,10 +310,10 @@
     </div>
   </div>
 </footer>
-<!-- <script src="/static/field_style/assets/js/jquery.min.js"></script> 
+<script src="/static/field_style/assets/js/jquery.min.js"></script> 
 <script src="/static/field_style/assets/js/bootstrap.min.js"></script> 
 <script src="/static/field_style/assets/js/wow.min.js"></script> 
 <script src="/static/field_style/assets/js/custom.js"></script>
-<script src="/static/field_style/assets/js/moment.min.js"></script> -->
+<script src="/static/field_style/assets/js/moment.min.js"></script>
 </body>
 </html>
