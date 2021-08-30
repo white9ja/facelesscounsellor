@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Poster Profile Detail</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/profile_style/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/profile_style/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MyResume - v4.3.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  {{ moment.include_moment() }}
+  <style type="text/css">
+    /*--------------------------------------------------------------
+# Testimonials 
+--------------------------------------------------------------*/
+.testimonials .testimonial-item {
+  box-sizing: content-box;
+  text-align: center;
+  min-height: 320px;
+}
+
+.testimonials .testimonial-item .testimonial-img {
+  width: 90px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.testimonials .testimonial-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: #111;
+}
+
+.testimonials .testimonial-item h4 {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+
+.testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
+  color: #c3e8fa;
+  font-size: 26px;
+}
+
+.testimonials .testimonial-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.testimonials .testimonial-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+}
+
+.testimonials .testimonial-item p {
+  font-style: italic;
+  margin: 0 15px 15px 15px;
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  margin-bottom: 35px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials .testimonial-item p::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 20px solid #fff;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 20px);
+}
+
+.testimonials .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #149ddd;
+}
+
+.testimonials .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #149ddd;
+}
+@media only screen and (max-width: 991px)  {
+  #md-slide-cover{
+    display: grid;
+  }
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="{{ url_for('fields') }}" class="nav-link scrollto ">   <span>Home</span></a></li>
+        <li><a href="#resume" class="nav-link scrollto active"><i class="bx bx-user"></i> <span>About Me</span></a></li>
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>My Services</span></a></li>
+        <!-- <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
+        <!-- <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li> -->
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <!-- <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Brandon Johnson</h1>
+      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </section> -->
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+
+  
+
+    <!-- ======= Skills Section ======= -->
+    
+
+    <!-- ======= Resume Section ======= -->
+    <section id="resume" class="resume">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2 style="font-size: 25px; margin-top: -25px">About Me</h2>
+          <center>
+          
+            <img src="{{image}}" class="img-fluid border-5 shadow-lg" alt="" style="width:350px;height:350px; border-radius: 100%; border:10px solid #ffffff">
+  
+          </center>
+        
+        </div>
+         {% if workers.count() > 0 %}
+{% for worker in workers %}
+        <div class="row">
+          <div class="col-lg-6">
+ 
+            <div class="resume-item pb-0">
+              <h4>{{worker.name}}</h4>
+              <p><em> {{worker.about}}</em></p>
+              <ul>
+                <li>{{worker.marrital_status}}</li>
+                <li>{{worker.city}} {{worker.country}}</li>
+              </ul>
+            </div>
+ 
+
+
+           
+            <div class="resume-item">
+              <h4><span style="text-transform: initial;">{{worker.education}}</span></h4>
+             
+            </div>
+            
+            
+           
+            <div class="resume-item">
+              <ul>
+                <li>{{worker.languages}}</li>
+               
+              </ul>
+            </div>
+            <!--  <h3 class="resume-title">Religion</h3>
+            <div class="resume-item">
+              <ul>
+                <li>{{worker.religion}}</li>
+               
+              </ul>
+            </div> -->
+          </div>
+          {% endfor %}
+
+          {% else %}
+          {% if current_user.gender == ['Male'] or current_user.gender == ['Female'] %}
+          <center>
+         <h3 class="resume-title" style="display: flex;"></h3>
+              <h6 style="text-transform: capitalize;">Please click the settings button to complete your registration</h6>
+              <!-- <a href="{{url_for('services')}}" class="btn", style="font-family:system-ui; font-weight:100; width:200px;height:50px;margin:10px;background-color:violet; padding:10px; color:#ffffff; border-bottom-right-radius:50px;border-bottom-left-radius:50px; border-top-right-radius:50px">Add Services</a> -->
+        </center>
+        {% endif %}
+          {% endif %}
+            
+          <div class="col-lg-6">
+          <!--  {% if specials.count() > 0 %} -->
+            
+            <div class="resume-item">
+              <h4>I specialize in the following cases</h4>
+            
+              {% for special in specials %}
+              <ul>
+                <li>{{special.spec}}</li>
+              
+              </ul>
+              {% endfor %}
+             {% else %}
+           
+            
+          {% endif %}
+            <h3 class="resume-title">Schedules</h3>
+            <div class="resume-item">
+              <h4>Am available on the following days and time</h4>
+              <h5>Eastern Time  UTC -5:00</h5>
+             
+              <ul>
+                <li>Mondays 6 am - 4pm</li>
+                <li>Tuesday 6 am - 4pm</li>
+                <li>Thursday 11 am - 3pm</li>
+                 <li>Friday 9 am - 2pm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+ {% if current_user.gender == ['Male'] or current_user.gender == ['Female'] %}
+    <section id="skills" class="skills section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Scores</h2>
+          <p>Below are the scores / result from my Bot assessment.</p>
+        </div>
+
+        <div class="row skills-content">
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">Clinical interview <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill"> Intellectual / Functioning IQ<i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Personality Assessment <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill">behavioural assessment<i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">General Knowledge<i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Empathy <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+        {% endif %}
+      <!-- ======= Facts Section ======= -->
+       <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 style="font-size: 18px; margin-top: -25px">My posts</h2>
+          <p>Kindly read, relate and share my posts</p>
+        </div>
+
+        <div class="" data-aos="fade-up" data-aos-delay="100" style="width:350px; padding-right:40px; ">
+          <div class="swiper-wrapper" id="md-slide-cover">
+                {% for prepost in preposts %}
+            <div class="swiper-slide" style="margin-bottom: 10px;margin-top: 10px">
+              <div class="testimonial-item" data-aos="fade-up">
+                <p style="min-width:250px; min-height:130px">
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  {{prepost.post_title}}
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <a href="{{url_for('post_detail', post_id = prepost.id)}}">
+                 {% if 'mp4' in prepost.post_img %}
+                         <center>
+                        <video  class="testimonial-img border-2 shadow-lg" style="width:120px; height:120px; border-radius:100px;object-fit: cover">
+                            <source src={{url_for('static', filename='user_uploads/' + prepost.post_img)}} type="video/mp4" style="width:120px; height:120px; border-radius:100px;object-fit: cover">
+                            Your browser does not support the video tag.
+                          </video>
+                          </center>
+                          {% else %}
+             <img src="{{url_for('static', filename='user_uploads/' + prepost.post_img)}}" class="testimonial-img" alt="" style="width:120px; height:120px; border-radius:100px;object-fit: cover">
+
+                         {% endif %}
+                  
+                </a>
+                <h4 style="padding: 5px 5px">{{ momentjs(prepost.posted_date).fromNow() }}</h4>
+               <div>
+                <a href="" style="padding: 5px 10px; font-size: 12px; text-decoration: none;">377<img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:20px;height:20px;padding: 4px 5px; margin-top:-5px; font-size: 9px">Like</a>
+                <a href="" style="padding: 5px 10px; font-size: 12px; text-decoration: none;">566 <img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:20px;height:20px;padding: 4px 5px; margin-top:-5px; font-size: 9px">Relate</a>
+              </div>
+                
+              </div>
+            </div><!-- End testimonial item -->
+                    {% endfor %}
+          
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+      
+<!-- ======= Facts Section ======= -->
+      {% if current_user.gender == 'Male' or current_user.gender == 'Female' %}
+      <section id="facts" class="facts">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Facts</h2>
+            <p></p>
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-3 col-md-6">
+              <div class="count-box">
+                <i class="bi bi-emoji-smile"></i>
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Happy Clients</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+              <div class="count-box">
+                <i class="bi bi-journal-richtext"></i>
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Projects</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="bi bi-headset"></i>
+                <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Hours Of Support</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+              <div class="count-box">
+                <i class="bi bi-award"></i>
+                <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Awards</p>
+              </div>
+            </div>
+  
+         
+     
+        </div>
+      </section><!-- End Facts Section -->
+    <!-- ======= Contact Section ======= -->
+      {% endif %}
+        
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background-color: violet;"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/profile_style/assets/vendor/aos/aos.js"></script>
+  <script src="/static/profile_style/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/static/profile_style/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="/static/profile_style/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/typed.js/typed.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/profile_style/assets/js/main.js"></script>
+
+</body>
+
+</html>

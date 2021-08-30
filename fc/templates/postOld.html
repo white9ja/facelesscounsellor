@@ -1,0 +1,199 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fc Bio-data</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!-- <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/profile_style/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/profile_style/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/static/profile_style/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MyResume - v4.3.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style type="text/css">
+    body{
+      background-image: url('/static/profile_style/assets/img/new/p4.jpg');
+   
+      
+    
+     
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="{{ url_for('field') }}" class="nav-link scrollto ">   <span>Home</span></a></li>
+        <li><a href="#resume" class="nav-link scrollto active"><i class="bx bx-user"></i> <span>About Me</span></a></li>
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>My Services</span></a></li>
+        <!-- <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
+        <!-- <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li> -->
+      </ul>
+    </nav><!-- .nav-menu -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <!-- <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Brandon Johnson</h1>
+      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </section> -->
+  <!-- End Hero -->
+
+
+   <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-1">
+
+          <div class="col-lg-4 ">
+  
+            <div class="portfolio-details-slider swiper-container" style="margin-top: -10px; opacity: 0.9">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide border-1 shadow-sm" style="background-color: magenta;padding:20px;height:150px;border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-left-radius: 100px">
+               
+                  <h3 style="text-align: center;font-size:40px; font-family:cursive;font-weight: 900;color:#ffffff"> No Malicious post</h3>
+                </div>
+
+                <div class="swiper-slide border-1 shadow-sm" style="background-color:brown;padding:20px;height:150px;border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-left-radius: 100px">
+                  <h3 style="text-align: center;font-size:30px; font-family:cursive;font-weight: 900;color:#ffffff"> No Defamation of character post</h3>
+                </div>
+
+                <div class="swiper-slide border-1 shadow-sm" style="background-color: lightskyblue;padding:20px;height:100px;border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-left-radius: 100px">
+                  <h3 style="text-align: center;font-size:40px; font-family:cursive;font-weight: 900;color:#ffffff"> No Hate post</h3>
+                </div>
+
+              </div>
+              
+            </div>
+               
+                  </div>
+      
+        
+               
+
+         
+
+          <div class="col-lg-8 mt-5 mt-lg-0 border-1 shadow-sm" style="padding:20px 20px; border-radius: 5px; background-color: transparent;opacity:1.5; border: 1px solid gray">
+
+              <form method="post" action="" enctype="multipart/form-data" accept-charset="UTF-8" autocomplete="off">
+             {{ form.hidden_tag() }}
+              <div class="form-group mt-3 ">
+                 {{ form.title.label(class="form-label", style="font-size:13px; color:#000000;font-weight:400") }}
+                      {% if form.title.errors %}
+                      {{ form.title(class="form-control is-invalid") }}  
+                        <ul class="errors">
+                          {% for error in form.title.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% else %}
+                         {{ form.title(class="form-control", id="md-phone") }} 
+                  {% endif %}  
+              </div>
+              <div class="form-group mt-3">
+                  {{ form.description.label(class="form-label", style="font-size:13px; color:#000000;font-weight:400") }}
+                      {% if form.description.errors %}
+                      {{ form.description(class="form-control is-invalid") }}  
+                        <ul class="errors">
+                          {% for error in form.description.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% else %}
+                         {{ form.description(class="form-control",rows=7, id="md-phone") }} 
+                  {% endif %}  
+              </div>
+              <div class="row">
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                  {{ form.post_img.label(class="form-label", style="font-size:13px; color:#000000;font-weight:400") }}
+                      {% if form.post_img.errors %}
+                      {{ form.post_img(class="form-control is-invalid") }}  
+                        <ul class="errors">
+                          {% for error in form.post_img.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% else %}
+                         {{ form.post_img(class="form-control", id="md-phone") }} 
+                  {% endif %}  
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0" >
+                {{ form.submit( class="btn",  style="width:200px; height:50px; background-color: violet;padding:15px 20px;margin-top:25px; text-align: center;color:#ffffff; border-bottom-right-radius: 50px;border-top-right-radius: 50px;border-bottom-left-radius: 50px") }}
+            
+            </div>
+          </div>
+
+       
+             
+              
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+ 
+
+ 
+  <script src="/static/profile_style/assets/vendor/aos/aos.js"></script>
+  <script src="/static/profile_style/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/static/profile_style/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="/static/profile_style/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/typed.js/typed.min.js"></script>
+  <script src="/static/profile_style/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/static/profile_style/assets/js/main.js"></script>
+
+</body>
+
+</html>

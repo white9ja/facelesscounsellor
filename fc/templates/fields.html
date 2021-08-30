@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FC</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/field_style/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/field_style/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="static/field_style/assets/css/font.css">
+<link rel="stylesheet" href="static/field_style/assets/css/animate.css">
+<link rel="stylesheet" href="static/field_style/assets/css/structure.css">
+
+<script src="static/field_style/assets/js/html5shiv.min.js"></script>
+<script src="static/field_style/assets/js/respond.min.js"></script>
+
+
+ {{ moment.include_moment() }}
+
+<style type="text/css">
+	
+  .img-view{
+     height:400px;
+     width:600px;
+     object-fit:fill;
+     background-color: #ffffff;
+     border: none;
+  }
+  #read-more {
+  white-space: nowrap; 
+  width: auto; 
+  height: 222px;
+  overflow:hidden;
+  text-overflow: "...read more"; 
+  border: 0px solid #000000;
+}
+ #md-video{
+
+    height:400px;
+  
+  }
+  
+  @media only screen and (max-width: 991px)  {
+    .img-view{
+     height:290px;
+     width:330px;
+     border-radius: 0px;
+     object-fit:fill;
+     background-color: #ffffff;
+      border: none;
+  }
+
+  }
+   @media only screen and (max-width: 495px)  {
+    
+/* .img-view{
+     height:290px;
+     width:343px;
+     border-radius: 0px;
+    
+     background-color: #ffffff;
+  }*/
+  }
+  </style>
+</head>
+<body>
+
+<!-- <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a> -->
+<header id="header" style="position: fixed;z-index: 9000; background-color: white;">
+  <div class="container" >
+    <nav class="navbar navbar-default" role="navigation" style="background-color:#ffffff;border:none">
+      <div class="container-fluid" style="background-color:#ffffff;border:none">
+        <div class="navbar-header" style="background-color:#ffffff;border:none">
+          <button type="button" style="background-color:#ffffff;border:none" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="{{url_for('fields')}}" style="display: flex; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+            
+            <img class="border-2 shadow-lg" src="/static/field_style/assets/img/mee.jpg" alt="logo" style="width:45px;height:45px; border-radius: 100px;margin-top: -19px;font-family:sans-serif; color:violet" ><span style="color: violet;">F</span><span style="font-weight: 100; color:gray; font-family: system-ui">C</span></a> </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav custom_na" style="justify-content: space-between;position: absolute; right:30px;background-color:white;" >
+           
+            <li ><a href="{{url_for('home')}}"><i class="fa fa-home" style="color:Violet; font-size: 20px;margin-top:-9px"></i>   Home</a></li>
+            <li></li>
+            <li><a href="#"><i class="fa fa-users" style="color:violet; font-size: 20px;margin-top:-9px"></i> Network</a></li>
+            <li><a href="#"><i class="fa fa-comment" style="color:violet; font-size: 20px;margin-top:-9px"></i> Message</a></li>
+            <li><a href="{{url_for('profile')}}"><i class="fa fa-user" style="color:violet; font-size: 20px;margin-top:-9px"></i> Account</a></li>
+             <li><a href="{{url_for('logout')}}"><i class="fa fa-sign-out" style="color:violet; font-size: 20px;margin-top:-9px"></i> Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- <form id="searchForm">
+      <input type="text" placeholder="Search...">
+      <input type="submit" value="">
+    </form> -->
+  </div>
+</header>
+
+          {% if current_user.pro_status == '0' %}
+             {% if current_user.gender == 'Male' or current_user.gender == 'Female' %}
+              
+                 <div class="alert alert-warning fade in"  style="max-width:350px; position: fixed;right:10px; top:70%;z-index: 90;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4 style="font-size: 12px;text-transform: capitalize;">Hello!  {{current_user.name}}</h4>
+                        <p style="text-align: center;font-size: 12px;">Please complete your registration to make users find you.</p>
+                        <center style="margin:15px"><a href="{{url_for('bio')}}" style="width:200px; height:60px; padding:10px 50px; border:1px solid rgb(216, 210, 210); border-radius:50px">Click here</a></center>
+                    </div>
+              {% endif %}
+          {% endif %}
+
+<section id="contentbody">
+  <div class="container">
+    <div class="row">
+      <div class=" col-sm-12 col-md-6 col-lg-6">
+        <div class="row">
+          <div class="leftbar_content">
+            <h2 style="font-weight: 100;font-family: system-ui;color:grey;font-style: italic;"> FaceLess<span style="font-weight:400; color:violet; font-style: initial;">Counsellor</span></h2>
+           <!--  <div class="single_stuff wow fadeInDown border-1 shadow-sm" style="margin-top:-20px">
+              <div class=" border-1 shadow-sm" style="background-color: #ffffff; height:130px; margin-top:0px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 10px">
+                  <h2 style="font-size:18px;font-family: system-ui;font-weight: 300;"><a href="#">How I went through depression for 18 months </a></h2>
+                  <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400;">Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat vehicula...read more</p>
+              </div>
+              <div class="single_stuff_img" > <a href="/static/field_style/pages/single.html"><img class="img-view border-2 shadow-lg" src="/static/field_style/assets/img/depression.jpg" alt="" ></a> </div>
+              <div class="single_stuff_article" style="background-color: #ffffff;">
+                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;"> <a class="stuff_category" href="#"><img src="/static/field_style/assets/img/hase.jfif" style="width:70px;height:70px;border-radius: 100px;"> </a>
+                  <div class="stuff_article_inner" style="margin-top:90px"> 
+                    
+                  </div>
+                 
+                </div>
+                <div style=" height:50px;position: absolute; margin: 1px 0px;">
+
+                  <div style="display: flex;left:70px;position:absolute;margin:10px;">
+                    <a href="" style="padding: 5px 5px; font-size: 12px; font-family: system-ui;font-weight:100;text-decoration: none;">Maria Bello</a>
+                    <a href="" style="padding: 5px 5px;font-size: 12px;color:#00b300;font-family: system-ui;font-weight:100;text-decoration: none;">+ Connect </a>
+                    <a href="" style="padding: 5px 5px;font-size: 12px;font-family: system-ui;font-weight:100; margin-right: 30px;text-decoration: none;">17 hours ago </a>
+                  </div>
+              
+               
+
+                    <div style="display: flex;justify-content:space-around; position: relative;top:50px; left:0px">
+                     <a href="" style="padding: 5px 15px; font-size: 12px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:30px;height:30px;padding: 4px 5px; margin-top:-5px">Like</a>
+                      <a href="" style="padding: 5px 15px;font-size: 12px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/message.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Message </a>
+                      <a href="" style="padding: 5px 15px;font-size: 12px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Relate </a>
+                      <a href="" style="padding: 5px 15px;font-size: 12px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/share.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Share </a>
+                     
+                   </div>
+                  
+
+                </div>
+              </div>
+             
+            </div> -->
+              {% for post in posts.items  %}
+            <div class="single_stuff wow fadeInDown" style="margin-top:-40px">
+              <div class=" border-1 shadow-sm" style="background-color: #ffffff; height:130px; margin-top:30px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 10px">
+                  <h2 style="font-size:18px;font-family: system-ui;font-weight: 300;"><a href="{{url_for('post_detail', post_id = post.id)}}" style="text-decoration: none">{{post.post_title}}</a></h2>
+                  <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400; text-overflow: ellipsis" >
+                  {{ post.post_desc | truncate(150) }}
+                  <a href="{{url_for('post_detail', post_id = post.id)}}" style="color:violet; text-decoration: none">read more</a></p>
+              </div>
+              <div class="single_stuff_img" style="background-color: #ffffff" > 
+                         <a >
+                         {% if 'mp4' in post.post_img %}
+                         <center>
+                        <video  class="img-view border-2 shadow-lg" controls>
+                            <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view">
+                            Your browser does not support the video tag.
+                          </video>
+                          </center>
+                          {% else %}
+                         <img class="img-view" src="{{url_for('static', filename='user_uploads/' + post.post_img)}}" alt="" >
+
+                         {% endif %}
+                         </a>
+
+               </div>
+              <div class="single_stuff_article" style="background-color: #ffffff;z-index: 900">
+                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;"> <a class="stuff_category" href="{{url_for('user_detail',  email = post.poster_email)}}"><img src="{{url_for('static', filename='user_uploads/' + post.poster_img)}}" style="width:70px;height:70px;border-radius: 100px;"> </a>
+                  <div class="stuff_article_inner" style="margin-top:90px"> 
+                    
+                  </div>
+                 
+                </div>
+                <div style=" height:50px;position: absolute; margin: 1px -0px;">
+
+                  <div style="display: flex;left:70px;position:absolute;margin:10px;">
+                    <a href="{{url_for('user_detail',  email = post.poster_email)}}" style="padding: 5px 5px; font-size: 12px; font-family: system-ui;font-weight:100;text-decoration: none;text-transform: capitalize;">{{post.poster_username}}</a>
+                    <a href="" style="padding: 5px 5px;font-size: 10px;color:#00b300;font-family: system-ui;font-weight:100;text-decoration: none;">+ Connect </a>
+    <a style="padding: 5px 5px;font-size: 12px;font-family: system-ui;font-weight:100; margin-right: 30px;text-decoration: none;">{{ momentjs(post.posted_date).fromNow() }} </a>
+                  </div>
+              
+               
+
+                    <div style="display: flex;justify-content:space-around; position: relative;top:50px; left:0px">
+                     <a href="" style="padding: 5px 15px; font-size: 10px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:30px;height:30px;padding: 4px 5px; margin-top:-5px">Like</a>
+                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/message.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Message </a>
+                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Relate </a>
+                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/share.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Share </a>
+                     
+                   </div>
+                  
+
+                </div>
+              </div>
+             
+            </div>
+                {% endfor %}
+         <!--    <div class="single_stuff wow fadeInDown border-1 shadow-sm" style="margin-top:-20px">
+              <div class=" border-1 shadow-sm" style="background-color: #ffffff; height:130px; margin-top:30px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 10px">
+                  <h2 style="font-size:18px;font-family: system-ui;font-weight: 300;"><a href="#" style="color: #000000;"></a>The first 6 month after our wedding</a></h2>
+                  <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400;">Suspendisse a pharetra urna. Morbi dui lectus, pharetra nec elementum eget, vulputate ut nisi. Aliquam accumsan, nulla sed feugiat vehicula...read more</p>
+              </div>
+              <div class="single_stuff_img" > <a href="pages/single.html"><img class="img-view border-2 shadow-lg" src="/static/field_style/assets/img/issue1.jpg" alt="" ></a> </div>
+              <div class="single_stuff_article" style="background-color: #ffffff;">
+                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;"> <a class="stuff_category" href="#"><img src="/static/field_style/assets/img/toyinn.jpeg" style="width:70px;height:70px;border-radius: 100px;"> </a>
+                  <div class="stuff_article_inner" style="margin-top:90px"> 
+                    
+                  </div>
+                 
+                </div>
+                <div style=" height:50px;position: absolute; margin: 1px 0px;">
+
+                  <div style="display: flex;left:70px;position:absolute;margin:10px;">
+                    <a href="" style="padding: 5px 5px; font-size: 12px; font-family: system-ui;font-weight:100;text-decoration: none;">Toyin Olajiga</a>
+                    <a href="" style="padding: 5px 5px;font-size: 12px;color:#00b300;font-family: system-ui;font-weight:100;text-decoration: none;">+ Connect </a>
+                    <a href="" style="padding: 5px 5px;font-size: 12px;font-family: system-ui;font-weight:100; margin-right: 30px;text-decoration: none;">17 hours ago </a>
+                  </div>
+              
+               
+
+                    <div style="display: flex;justify-content:space-around; position: relative;top:50px; left:0px">
+                     <a href="" style="padding: 5px 15px; font-size: 12px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:30px;height:30px;padding: 4px 5px; margin-top:-5px">Like</a>
+                      <a href="" style="padding: 5px 15px;font-size: 12px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/message.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Message </a>
+                      <a href="" style="padding: 5px 15px;font-size: 12px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Relate </a>
+                      <a href="" style="padding: 5px 15px;font-size: 12px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/share.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Share </a>
+                     
+                   </div>
+                  
+                  
+
+                </div>
+              </div>
+             
+            </div> -->
+            <br>
+    <center>
+               
+                  {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                      {% if page_num %}
+                           {% if posts.page == page_num %}
+   <a style="background-color: violet; color:#ffffff; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('fields', page= page_num )}}">{{page_num}}</a>
+                            {% else %}
+   <a style="border:1px solid violet; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('fields', page= page_num )}}">{{page_num}}</a>
+                            {% endif %}
+                          {% else %}
+                         
+                      
+                      {% endif %}
+
+                  {% endfor %}
+
+          </center>
+         
+          </div>
+        </div>
+
+
+         
+      </div>
+      <div class="col-sm-6 col-md-2 col-lg-2">
+        <div class="row">
+          <div class="middlebar_content">
+            <h2 class="violet_bg" style="background-color: violet; font-family: system-ui;font-weight:100">Trending Post of the Month</h2>
+            <div class="middlebar_content_inner wow fadeInUp" style="margin-top:20px;border:none; background-color: #e5e3df;">
+              <ul class="middlebar_nav " style="background-color: red;">
+                <li class="card border-1 shadow-lg" style="border-radius: 3px; background-color: #ffffff;padding:10px 15px">
+                   <a class="mbar_thubnail" href="#">
+                     <img src="/static/field_style/assets/img/mee.jpg" alt="" style="border-radius: 100px;width: 60px; height:60px;padding-bottom:0px;">
+                    </a>
+                     <a class="mbar_title" href="#" style="font-family: system-ui;font-size: 11px;padding-top: 10px;font-weight:100;">How i handled my insecurities</a> 
+                </li>
+                <li class="card border-1 shadow-lg" style="border-radius: 3px; background-color: #ffffff;padding:10px 15px">
+                  <a class="mbar_thubnail" href="#">
+                    <img src="/static/field_style/assets/img/mec013.jpg" alt="" style="border-radius: 100px;width: 60px; height:60px;padding-bottom:0px;">
+                   </a>
+                    <a class="mbar_title" href="#" style="font-family: system-ui;font-size: 11px;padding-top: 10px;font-weight:100;">Reasons why marriages fail in this Era</a> 
+             
+                <li class="card border-1 shadow-lg" style="border-radius: 3px; background-color: #ffffff;padding:10px 15px">
+              <a class="mbar_thubnail" href="#">
+                <img src="/static/field_style/assets/img/mee.jpg" alt="" style="border-radius: 100px;width: 60px; height:60px;padding-bottom:0px;">
+               </a>
+                <a class="mbar_title" href="#" style="font-family: system-ui;font-size: 11px;padding-top: 10px;font-weight:100;">How my addiction all started</a> 
+                </li>
+              </li>
+              <li class="card border-1 shadow-lg" style="border-radius: 3px; background-color: #ffffff;padding:10px 15px">
+                <a class="mbar_thubnail" href="#">
+                  <img src="/static/field_style/assets/img/girl3.jpg" alt="" style="border-radius: 100px;width: 60px; height:60px;padding-bottom:0px;">
+                </a>
+                  <a class="mbar_title" href="#" style="font-family: system-ui;font-size: 11px;padding-top: 10px;font-weight:100;">15 Truths your marriage counsellor didnt tell you</a> 
+            </li>
+              <li class="card border-1 shadow-lg" style="border-radius: 3px; background-color: #ffffff;padding:10px 15px">
+                  <a class="mbar_thubnail" href="#">
+                    <img src="/static/field_style/assets/img/mee.jpg" alt="" style="border-radius: 100px;width: 60px; height:60px;padding-bottom:0px;">
+                  </a>
+                    <a class="mbar_title" href="#" style="font-family: system-ui;font-size: 11px;padding-top: 10px;font-weight:100;">World Friendship day celebration</a> 
+              </li>
+              <li class="card border-1 shadow-lg" style="border-radius: 3px; background-color: #ffffff;padding:10px 15px">
+                <a class="mbar_thubnail" href="#">
+                  <img src="/static/field_style/assets/img/mee.jpg" alt="" style="border-radius: 100px;width: 60px; height:60px;padding-bottom:0px;">
+                </a>
+                  <a class="mbar_title" href="#" style="font-family: system-ui;font-size: 11px;padding-top: 10px;font-weight:100;">Words from the street</a> 
+              </li>
+             
+              </ul>
+            </div>
+            <div class="popular_categori  wow fadeInUp">
+              <h2 class="limeblue_bg">Most Popular Categories</h2>
+              <ul class="poplr_catgnva">
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Life &amp; Style</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Slider</a></li>
+                <li><a href="#">Sports</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <div class="row">
+          <div class="rightbar_content">
+            <div class="single_blog_sidebar wow fadeInUp">
+              <h2 style="text-transform: capitalize;font-family: system-ui;font-weight: 100; text-align: center;">Recently Verified Counsellors</h2>
+              <ul class="featured_nav">
+              {% for worker in workers %}
+                <li>   
+                  <div class="col-md-6 col-lg-3 border-1 shadow-sm" style="max-width:300px;">
+                  <div class="block-pricing border-1 shadow-sm" style="justify-content: center;padding:10px 30px ">
+                  
+                    <a href="{{url_for('detail', fc_id = worker.id)}}">
+                     <img src="{{url_for('static', filename='user_uploads/' + worker.fc_image)}}" style="height:205px; width:205px; margin:10px 10px;border-radius: 100%; object-fit: cover;" alt="About" >
+                          </a>
+                       <center> 
+                          <h4 style="font-size:12px; text-align: center; margin:20px 50px;width:100px;">{{worker.role}} # {{worker.fc_id}}</h4>
+                        
+                          <h4 style="display:flex; font-size:12px;text-align: center; margin: 20px;width:130px;"><img src="/static/field_style/assets/img/locc.png" style="width: 20px; height:20px; margin:-3px 10px"> {{worker.city}}  {{worker.country}}</h4>
+                       </center>
+                        <div class="table_btn">
+                          <a href="{{url_for('detail', fc_id = worker.id)}}" class="btn" style="margin:20px;font-size: 14px; background-color:violet;padding:10px; width:180px; height:45px;color:#ffffff;border-bottom-right-radius: 50px; border-bottom-left-radius:50px; border-top-right-radius:50px; font-weight:100"></i> View Profile</a>
+                       </div>
+                    </div>
+                </div >
+                             
+                </li>
+                {% endfor %}
+                
+                    <br>
+                   
+              </ul>
+              <br>
+            </div>
+            <div class="single_blog_sidebar wow fadeInUp">
+              <h2 ><a href="" style="text-decoration: none; font-weight: 100">View all</a></h2>
+             
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="position:fixed; top:80%;right:5%; display: flex;">
+<div style=" width:60px; height:60px; background-color:violet;  position: absolute;top:68%; right:20px;opacity:0.9; border-radius: 100px; align-items: center; justify-content: center; text-align: center" ><a href="{{url_for('my_post')}}"><i class="fa fa-plus" style="color:white; font-size: 20px; padding:20px; font-weight: 100;;" ></i> </a> </div>
+<!-- <div style=" width:60px; height:60px; background-color:violet;  position: absolute;top:80%; right:20px; border-radius: 100px"><i class="fa fa-search" style="  color:white; font-size: 20px; padding:20px" ></i>  </div> -->
+</div> 
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="footer_inner">
+         <center><p class="pull-left">Copyright &copy; 2021 facelesscounsellor.com</p></center> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- <script src="/static/field_style/assets/js/jquery.min.js"></script> 
+<script src="/static/field_style/assets/js/bootstrap.min.js"></script> 
+<script src="/static/field_style/assets/js/wow.min.js"></script> 
+<script src="/static/field_style/assets/js/custom.js"></script>
+<script src="/static/field_style/assets/js/moment.min.js"></script> -->
+</body>
+</html>

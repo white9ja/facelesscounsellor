@@ -1,0 +1,141 @@
+{% extends 'layout/welcome_layout.html' %}
+{% block content %}
+
+	<!-- Header Section -->
+	<!--  -->
+	<!-- Header Section end -->
+
+	<!-- Hero Section -->
+	<section class="hero__section" style="margin-top: -70px">
+		<div class="hero-slider ">
+	
+			<div class="slide-item border-4 shadow-lg" style="align-self:center ; align-items: center; justify-content: center; border: 1px solid #fffff1; border-radius:3px">
+				<a class="fresco"  style="align-content: center; align-items: center">
+				<div class="border-1 shadow-sm" style="width:500px; height: 700px; justify-content: center; align-items: center; align-content: center"> 
+				
+
+				<div style="margin: 100px">
+									{% with messages= get_flashed_messages(with_categories=true) %}
+				                      {% if messages %}
+				                         {% for category, message in messages %}
+				                      <div class="alert alert border-1 shadow-sm" {{category}}"  style=" color:#000000; display: flex; font-size: 15px; text-align:center;padding-left: 40px; font-family: system-ui; font-weight: 100">
+				                        
+				                           {{message}}
+				                         </div>
+				                      {% endfor %}
+				                    {% endif %}
+				                    {% endwith %}
+                   <div style="margin-top: -40px">
+                       <h4 >Welcome</h4>
+                      <form method="post" action="{{ url_for('register') }}"  accept-charset="UTF-8" autocomplete="off">
+                            {{ form.hidden_tag() }}
+                  
+                     <div class="col-form-label" id="md-phone-container-reg_reg">
+
+                            {{ form.username.label(class="form-label", style="font-size:13px") }}
+                                {% if form.username.errors %}
+                                {{ form.username(class="form-control is-invalid") }}  
+                                  <ul class="errors">
+                                    {% for error in form.username.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                  {% else %}
+                                   {{ form.username(class="form-control", autocomplete="off", id="md-phone") }} 
+                            {% endif %}                   
+                    </div>
+                             
+                     <div class="col-form-label" id="md-phone-container-reg">
+
+                            {{ form.email.label(class="form-label", style="font-size:13px") }}
+                                {% if form.email.errors %}
+                                {{ form.email(class="form-control is-invalid") }}  
+                                  <ul class="errors">
+                                    {% for error in form.email.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                  {% else %}
+                                   {{ form.email(class="form-control", id="md-phone") }} 
+                            {% endif %}                   
+                    
+                            </div>
+                              <div class="col-form-label" id="md-phone-container-reg">
+                                  {{ form.password.label(class="form-label", style="font-size:13px") }}
+                                {% if form.password.errors %}
+                                {{ form.password(class="form-control is-invalid") }}  
+                                  <ul class="errors">
+                                    {% for error in form.password.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                  {% else %}
+                                   {{ form.password(class="form-control", id="md-phone") }} 
+                            {% endif %}                
+                            </div>
+                             <div class="col-form-label" id="md-phone-container-reg">
+                                 {{ form.confirm_password.label(class="form-label", style="font-size:13px") }}
+                                {% if form.confirm_password.errors %}
+                                {{ form.confirm_password(class="form-control is-invalid") }}  
+                                  <ul class="errors">
+                                    {% for error in form.confirm_password.errors %}
+                                      <li>{{ error }}</li>
+                                    {% endfor %}
+                                  </ul>
+                                  {% else %}
+                                   {{ form.confirm_password(class="form-control", id="md-phone") }} 
+                            {% endif %}                
+                            </div>
+                          
+                          
+                            
+                              <div class="table_btn">
+				                  
+				                    {{ form.submit( class="btn", style="font-family:system-ui; font-weight:100; width:200px;height:50px;margin:10px;background-color:violet; padding:10px; color:#ffffff; border-bottom-right-radius:50px;border-bottom-left-radius:50px; border-top-right-radius:50px") }}
+				                </div>
+                           
+                            <div class="col-form-label">
+                            
+                              <a href="{{url_for('register_fc')}}" style="color:black;font-size:12px; font-weight:200;outline:none">Register as a counsellor ?</a>
+                            </div>
+                      </form>
+                    </div>
+              </div>
+
+
+
+            
+				</div>
+			
+			
+				</a>
+			</div>
+		</div>
+		  <div class="hero-text-slider" style="display: none">
+			<div class="text-item">
+			
+			</div>
+			<div class="text-item">
+				
+			</div>
+			<div class="text-item">
+				
+			</div>
+			<div class="text-item">
+				
+			</div>
+			<div class="text-item">
+				
+			</div>
+			<div class="text-item">
+				
+			</div>
+			<div class="text-item">
+				
+			</div>
+		</div>
+	</section>
+	<!-- Hero Section end -->
+
+	{% endblock %}
+	

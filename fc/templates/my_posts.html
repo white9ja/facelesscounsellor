@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO -->
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    
+    
+    <title>{{ current_user.username}} Posts</title>
+    
+ 
+    
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="/static/post_style/css/plugin.css">
+    
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/static/post_style/css/style.css">
+    
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+    
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="/static/post_style/css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="/static/post_style/css/syntax/shThemeDefault.css">
+    
+    
+    <!-- HTML5 shiv and Respond.js support IE8 or Older for HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {{ moment.include_moment() }}
+    <style type="text/css">
+  
+  .img-view{
+     height:400px;
+     width:600px;
+     object-fit:fill;
+     background-color: #ffffff;
+     border: none;
+  }
+  #read-more {
+  white-space: nowrap; 
+  width: auto; 
+  height: 222px;
+  overflow:hidden;
+  text-overflow: "...read more"; 
+  border: 0px solid #000000;
+}
+ #md-video{
+
+    height:400px;
+  
+  }
+  
+  @media only screen and (max-width: 991px)  {
+    .img-view{
+     height:290px;
+     width:290px;
+     border-radius: 0px;
+     object-fit:fill;
+     background-color: #ffffff;
+      border: none;
+  }
+
+  }
+   @media only screen and (max-width: 495px)  {
+    
+/* .img-view{
+     height:290px;
+     width:343px;
+     border-radius: 0px;
+    
+     background-color: #ffffff;
+  }*/
+  }
+  </style>
+
+  </head>
+
+ <body>
+
+	
+  
+    
+    
+    <div id="main">
+        <div class="container">
+            <div class="row">
+            	
+               
+                 
+          
+                
+                
+                
+                 
+                 <!-- Blog Post (Right Sidebar) Start -->
+                 <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                    	<div class="row">
+                    		
+                            
+                            <div class="sub-title">
+                           		<a title="Go to Home Page" ><h2 style="font-size: 20px; font-weight: 100">You have a total of {{posts.count()}} posts</h2> 
+                              </a>
+
+                                <a href="{{url_for('fields')}}" class="smoth-scroll"><i class="icon-bubbles"></i></a>
+                             </div>
+                            {% if posts.count() > 0 %}
+                            {% for post in posts %}
+                            <div class="col-md-12 content-page"  style="padding:5px 1px; margin-top: -20px;">
+                              <div class="col-md-12 blog-post">
+                            	
+                                
+                                <!-- Post Headline Start -->
+                                <div class="post-title" style=" ">
+                                    <h2>{{post.post_title}}</h2> 
+                                     <div style="display: flex;width:200px; justify-content:space-around;">
+                                       <a href="{{url_for('edit_post', post_id= post.id)}}">..edit <i class="fa fa-pencil"> </i></a>
+                                      <a href="{{url_for('del_post', post_id= post.id)}}"><i class="fa fa-trash"> </i></a>
+                                      </div>
+
+                                   </div>
+                                   <!-- Post Headline End -->
+                                    
+                                    
+                                <!-- Post Detail Start -->
+                                <div class="post-info" style="display: flex">
+                                    <span style="font-size: 10px">{{momentjs(post.posted_date).calendar()}}</a></span>
+                                    <div>
+                                      <a href="" style="padding: 5px 10px; font-size: 12px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:20px;height:20px;padding: 4px 5px; margin-top:-5px; font-size: 9px">377 Like</a>
+                                      <a href="" style="padding: 5px 10px; font-size: 12px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:20px;height:20px;padding: 4px 5px; margin-top:-5px; font-size: 9px">566 Relate</a>
+                                    </div>
+                                   </div>
+                                   <!-- Post Detail End -->
+                                    
+                                    
+                                <p>{{post.post_desc}}</p>
+                                    
+                                
+                                <!-- Post Image Start -->
+                                <div class="post-image margin-top-40 margin-bottom-40;" style="padding: 10px">
+                                <div style="position: relative; top:100px; left: :20px; padding: 10px; background-color:#ffffff; width: 70px; height: 70px; border-radius: 100px; z-index: 900">
+                                    <a href="{{url_for('post_avartar', post_id = post.id)}}"><img src="/static/profile_style/assets/img/new/photo-camera.png" style="width:50px;height:50px;"></a> 
+                                    </div>
+                                       {% if 'mp4' in post.post_img %}
+                                       <center>
+                                      <video  class="img-view border-2 shadow-lg" controls>
+                                          <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view">
+                                          Your browser does not support the video tag.
+                                        </video>
+                                        </center>
+                                        {% else %}
+                                       <img class="img-view" src="{{url_for('static', filename='user_uploads/' + post.post_img)}}" alt="" >
+
+                                       {% endif %}
+                                  <!--  <img src="{{url_for('static', filename='user_uploads/' + post.post_img)}}" style="object-fit:fill; height:auto;" alt=""> -->
+
+                                                                      
+                                  </div>
+                                  <!-- Post Image End -->
+                                  
+                                  
+                                 {% endfor %}
+                                 {% else %}
+                                 <div style="padding:100px 50px">
+                                  <center><h3>Sorry You dont have a any post </h3></center>
+                                  <br>
+                                  <center><h5>Please click on the + Plus button to create a post</h5></center>
+                                  <br>
+                                  <center> <img src="/static/post_style/images/new/loupe.png" style="width:70px ; height:70px"></center>
+                                  </div>
+                                 {%endif%}
+                                 <!-- Post Video Tutorial Start -->
+                                
+    
+    
+    
+<div style="position:fixed; top:80%;right:5%; display: flex;">
+<div style=" width:60px; height:60px; background-color:violet;  position: absolute;top:68%; right:20px;opacity:0.9; border-radius: 100px; align-items: center; justify-content: center; text-align: center" ><a href="{{url_for('post')}}"><i class="fa fa-plus" style="color:white; font-size: 20px; padding:20px; font-weight: 100;;" ></i> </a> </div>
+<!-- <div style=" width:60px; height:60px; background-color:violet;  position: absolute;top:80%; right:20px; border-radius: 100px"><i class="fa fa-search" style="  color:white; font-size: 20px; padding:20px" ></i>  </div> -->
+</div> 
+     
+     <!-- Endpage Box (Popup When Scroll Down) Start -->
+     <div id="scroll-down-popup" class="endpage-box" style="width:320px; border-radius:5px">
+      
+      
+        <ul style="color:#000000; font: 15px;">
+        <h4>Gentle Reminder</h4>
+          <li style="font-family: system-ui; font-weight: 400">No Hate Post</li>
+          <li style="font-family: system-ui; font-weight: 400">No Defamation of character Post</li>
+          <li style="font-family: system-ui; font-weight: 400">No Malicious Post</li>
+        </ul>
+         
+      </div>
+      <!-- Endpage Box (Popup When Scroll Down) End -->
+      
+    
+    
+    
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <!-- Back to Top End -->
+    
+    
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="/static/post_style/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/plugin.js"></script>
+    
+    <!-- Main Javascript File  -->
+    <script type="text/javascript" src="/static/post_style/js/scripts.js"></script>
+    
+    <!-- Syntax Highlighter Javascript File  -->
+    <script type="text/javascript" src="/static/post_style/js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="/static/post_style/js/syntax/shBrushXml.js"></script>
+    
+	<!-- Syntax Highlighter Call Function -->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '/static/post_style/js/syntax/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+
+    
+   </body>
+ </html>

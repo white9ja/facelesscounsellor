@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+       {% if title %}
+    <title>FC | {{title}}</title>
+     {% else %}
+     <title>FC | Welcome</title>
+     {% endif %}
+	<meta charset="UTF-8">
+<!-- 	<meta name="description" content="Boto Photo Studio HTML Template">
+	<meta name="keywords" content="photo, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/static/css/slicknav.min.css"/>
+	<link rel="stylesheet" href="/static/css/fresco.css"/>
+	<link rel="stylesheet" href="/static/css/slick.css"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="/static/css/style.css"/>
+
+
+  <!-- Template Main CSS File -->
+<!--   <link href="assets/css/style.css" rel="stylesheet"> -->
+
+
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+<style type="text/css">
+	
+#md-grid-container{
+display: flex;
+justify-content: space-between;
+}
+#md-grid-left{
+min-width:220px;
+}
+#md-grid-right{
+min-width:220px;
+}
+#reg_fc_btn{
+ font-family:system-ui;
+ font-weight:100;
+ width:500px;
+ height:50px;
+ margin:10px;
+ background-color:violet;
+ padding:10px;
+ color:#ffffff;
+ border-bottom-right-radius:50px;
+ border-bottom-left-radius:50px;
+ border-top-right-radius:50px;
+}
+@media only screen and (max-width: 991px)  {
+	#md-ch{
+		padding: 20px 100px;
+	}
+#md-ch1{
+		padding: 15px;
+	}
+#md-phone-container{
+margin-left: 100px
+}
+
+
+#md-phone{
+max-width: 300px;
+
+}
+#md-phone-title{
+	text-align: center;
+}
+#md-grid-container{
+display:grid;
+margin-left: 100px
+}
+#md-grid-left{
+min-width:300px;
+
+}
+#md-grid-right{
+min-width:300px;
+}
+#reg_fc_btn{
+	max-width:230px
+}
+}
+</style>
+
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header Section -->
+	{% block content %}
+
+    {% endblock %}
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search End -->
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="/static/js/vendor/jquery-3.2.1.min.js"></script>
+	<script src="/static/js/jquery.slicknav.min.js"></script>
+	<script src="/static/js/slick.min.js"></script>
+	<script src="/static/js/fresco.min.js"></script>
+	<script src="/static/js/main.js"></script>
+
+	</body>
+</html>
