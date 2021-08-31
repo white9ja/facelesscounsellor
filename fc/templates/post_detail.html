@@ -128,7 +128,7 @@
                 </p>
                 <div class="single_stuff_img border-2 shadow-lg" > <a >
                {% if 'mp4' in post.post_img %}
-                        <video  class="img-view-video border-2 shadow-lg"  controls>
+                        <video  class="img-view-video border-2 shadow-lg" style="border: 1px solid #f0f0f5"  controls>
                             <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view-video border-2 shadow-lg" allowfullscreen>
                             Your browser does not support the video tag.
                           </video>
