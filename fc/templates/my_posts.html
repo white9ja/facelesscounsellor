@@ -49,6 +49,15 @@
      background-color: #ffffff;
      border: none;
   }
+      .img-view-video{
+     height:360px;
+     width:500px;
+  
+     background-color: #ffffff;
+   align-items: center;
+   justify-content: center
+
+  }
   #read-more {
   white-space: nowrap; 
   width: auto; 
@@ -76,13 +85,15 @@
   }
    @media only screen and (max-width: 495px)  {
     
-/* .img-view{
-     height:290px;
-     width:343px;
+.img-view-video{
+     height:250px;
+     width:280px;
      border-radius: 0px;
-    
+    /* object-fit:cover;*/
      background-color: #ffffff;
-  }*/
+      border: none;
+
+  }
   }
   </style>
 
@@ -156,8 +167,8 @@
                                     </div>
                                        {% if 'mp4' in post.post_img %}
                                        <center>
-                                      <video  class="img-view border-2 shadow-lg" controls>
-                                          <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view">
+                                      <video  class="img-view-video border-2 shadow-lg" controls>
+                                          <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view-video" allowfullscreen>
                                           Your browser does not support the video tag.
                                         </video>
                                         </center>

@@ -232,7 +232,7 @@ def post():
     post = Posts(poster_email=current_user.email, poster_username=current_user.username, poster_img=current_user.fc_image,post_id=random.randint(0,999),post_title= form.title.data, post_desc= form.description.data,post_img= post_file)
     db.session.add(post)
     db.session.commit()
-    return redirect (url_for('field'))
+    return redirect (url_for('fields'))
   return render_template('/post.html', title = 'post', form = form)
 
 

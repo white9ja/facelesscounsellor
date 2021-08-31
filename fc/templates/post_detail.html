@@ -24,7 +24,15 @@
      object-fit:cover;
      background-color: #ffffff;
   }
-  
+  .img-view-video{
+    height:360px;
+    width:500px;
+   /* object-fit:cover;*/
+   background-color: #ffffff;
+   align-items: center;
+   justify-content: center
+
+  }
   
   @media only screen and (max-width: 991px)  {
     .img-view{
@@ -49,6 +57,15 @@
     height:300px;
   
   }
+  .img-view-video{
+     height:250px;
+     width:280px;
+     border-radius: 0px;
+    /* object-fit:cover;*/
+     background-color: #ffffff;
+      border: none;
+
+  }
   }
    @media only screen and (min-width: 375px)  {
     
@@ -56,6 +73,7 @@
     width:344px;
     height:500px;
   }
+  
   }
   </style>
 </head>
@@ -110,8 +128,8 @@
                 </p>
                 <div class="single_stuff_img border-2 shadow-lg" > <a >
                {% if 'mp4' in post.post_img %}
-                        <video  class="img-view border-2 shadow-lg"  controls>
-                            <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view border-2 shadow-lg" >
+                        <video  class="img-view-video border-2 shadow-lg"  controls>
+                            <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4" class="img-view-video border-2 shadow-lg" allowfullscreen>
                             Your browser does not support the video tag.
                           </video>
 
