@@ -145,7 +145,7 @@ def field():
 def fields():
   page = request.args.get('page', 1, type=int)
   page1 = request.args.get('page', 1, type=int)
-  posts = Posts.query.order_by(Posts.posted_date.desc()).paginate(page = page,  per_page=2)
+  posts = Posts.query.order_by(Posts.posted_date.desc()).paginate(page = page,  per_page=4)
   workers = Worker.query.order_by(Worker.completed_at.desc())
   return render_template('/fields.html', title='field', workers = workers, posts = posts)
 
