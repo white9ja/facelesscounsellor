@@ -101,9 +101,9 @@
           <div class="leftbar_content">
             <h2 style="font-weight: 100;font-family: system-ui;color:grey;font-style: italic;"> FaceLess<span style="font-weight:400; color:violet; font-style: initial;">Counsellor</span></h2>
              {% for post in posts %}
-            <div class="singlepost_area">
+            <div class="singlepost_area;">
               <div class="singlepost_content border-2 shadow-lg" > <a class="stuff_category"> </a> <span class="stuff_date" style="background-color: violet; font-size: 8px; padding:15px 10px; text-align: center"><span style="margin-left:4px">{{ momentjs(post.posted_date).format('dddd') }}</span>  <strong style="font-size: 14px;text-align: center">{{ momentjs(post.posted_date).format('Do') }}</strong></span>
-                <h2><a style="text-decoration: none">{{post.post_title}} </a></h2>
+                <div style="position:relative;"><a style="text-decoration:none; font-size: 15px">{{post.post_title}} </a></div>
                 <img class="img-center" src="../images/hot_img1.jpg" alt="">
                 <p>
                   {{post.post_desc}}
