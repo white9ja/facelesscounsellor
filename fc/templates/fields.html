@@ -20,11 +20,13 @@
 <style type="text/css">
 	
   .img-view{
-     height:400px;
-     width:600px;
+     height:360px;
+     width:590px;
      object-fit:fill;
      background-color: #ffffff;
-     border: none;
+   align-items: center;
+   justify-content: center
+
   }
   #read-more {
   white-space: nowrap; 
@@ -42,7 +44,7 @@
   
   @media only screen and (max-width: 991px)  {
     .img-view{
-     height:290px;
+     height:250px;
      width:330px;
      border-radius: 0px;
      object-fit:fill;
@@ -56,11 +58,24 @@
   }
   </style>
 </head>
+ {% if current_user.pro_status == '0' %}
+             {% if current_user.gender == 'Male' or current_user.gender == 'Female' %}
+              
+                 <div class="alert alert-warning fade in"  style="max-width:350px; position: fixed;right:10px; top:70%;z-index: 90;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4 style="font-size: 12px;text-transform: capitalize;">Hello!  {{current_user.name}}</h4>
+                        <p style="text-align: center;font-size: 12px;">Please complete your registration to make users find you.</p>
+                        <center style="margin:15px"><a href="{{url_for('bio')}}" style="width:200px; height:60px; padding:10px 50px; border:1px solid rgb(216, 210, 210); border-radius:50px">Click here</a></center>
+                    </div>
+              {% endif %}
+          {% endif %}
 <body>
-
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
 <!-- <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a> -->
 <header id="header" style="position: fixed;z-index: 9000; background-color: white;">
-  <div class="container" >
+  <div class="container border-1 shadow-lg" >
     <nav class="navbar navbar-default" role="navigation" style="background-color:#ffffff;border:none">
       <div class="container-fluid" style="background-color:#ffffff;border:none">
         <div class="navbar-header" style="background-color:#ffffff;border:none">
@@ -87,8 +102,7 @@
     </form> -->
   </div>
 </header>
-
-          {% if current_user.pro_status == '0' %}
+ {% if current_user.pro_status == '0' %}
              {% if current_user.gender == 'Male' or current_user.gender == 'Female' %}
               
                  <div class="alert alert-warning fade in"  style="max-width:350px; position: fixed;right:10px; top:70%;z-index: 90;">
@@ -99,23 +113,24 @@
                     </div>
               {% endif %}
           {% endif %}
-
 <section id="contentbody">
-  <div class="container">
+  <div class="container border-2 shadow-lg">
     <div class="row">
       <div class=" col-sm-12 col-md-6 col-lg-6">
-        <div class="row">
+     
+        <div class="row border-2 shadow-lg">
           <div class="leftbar_content">
             <h2 style="font-weight: 100;font-family: system-ui;color:grey;font-style: italic;"> FaceLess<span style="font-weight:400; color:violet; font-style: initial;">Counsellor</span></h2>
-          
               {% for post in posts.items  %}
-            <div class="single_stuff wow fadeInDown" style="margin-top:-40px">
-              <div class=" border-1 shadow-sm" style="background-color: #ffffff; height:130px; margin-top:30px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 10px">
+            <div class="single_stuff border-1 shadow-sm wow fadeInDown" style="margin-top:-40px">
+              <div class="card border-2 shadow-lg" style="background-color: #ffffff; height:130px; margin-top:30px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 15px">
                   <h2 style="font-size:18px;font-family: system-ui;font-weight: 300;"><a href="{{url_for('post_detail', post_id = post.id)}}" style="text-decoration: none">{{post.post_title}}</a></h2>
                   <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400; text-overflow: ellipsis" >
                   {{ post.post_desc | truncate(150) }}
                   <a href="{{url_for('post_detail', post_id = post.id)}}" style="color:violet; text-decoration: none">read more</a></p>
               </div>
+              <center>
+              <div class="card border-2 shadow-lg">
               <div class="single_stuff_img" style="background-color: #ffffff" > 
                          <a >
                          {% if 'mp4' in post.post_img %}
@@ -132,13 +147,20 @@
                          </a>
 
                </div>
-              <div class="single_stuff_article" style="background-color: #ffffff;z-index: 900">
-                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;"> <a class="stuff_category" href="{{url_for('user_detail',  email = post.poster_email)}}"><img src="{{url_for('static', filename='user_uploads/' + post.poster_img)}}" style="width:70px;height:70px;border-radius: 100px;"> </a>
-                  <div class="stuff_article_inner" style="margin-top:90px"> 
-                    
-                  </div>
-                 
                 </div>
+            </center>
+              <div class="single_stuff_article border-1 shadow-sm" style="background-color: #ffffff;z-index: 900">
+              
+                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;">
+
+                 <a class="stuff_category" href="{{url_for('user_detail',  email = post.poster_email)}}"><img src="{{url_for('static', filename='user_uploads/' + post.poster_img)}}" style="width:70px;height:70px;border-radius: 100px;"> </a>
+               
+                  <div class="stuff_article_inner" style="margin-top:90px"> 
+                  
+                  </div>
+                
+                </div>
+
                 <div style=" height:50px;position: absolute; margin: 1px -0px;">
 
                   <div style="display: flex;left:70px;position:absolute;margin:10px;">
@@ -150,10 +172,10 @@
                
 
                     <div style="display: flex;justify-content:space-around; position: relative;top:50px; left:0px">
-                     <a href="" style="padding: 5px 15px; font-size: 10px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:30px;height:30px;padding: 4px 5px; margin-top:-5px">Like</a>
-                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/message.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Message </a>
-                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Relate </a>
-                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/share.png" alt="" style="width:30px;height:30px;padding: 5px 5px">Share </a>
+                     <a href="" style="padding: 5px 15px; font-size: 10px; text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/like.png" alt="" style="width:25px;height:25px;padding: 4px 5px; margin-top:-5px">Like</a>
+                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/message.png" alt="" style="width:25px;height:25px;padding: 5px 5px">Message </a>
+                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/relations.png" alt="" style="width:25px;height:25px;padding: 5px 5px">Relate </a>
+                      <a href="" style="padding: 5px 15px;font-size: 10px;text-decoration: none;"><img src="" alt=""><img src="/static/field_style/assets/img/share.png" alt="" style="width:25px;height:25px;padding: 5px 5px">Share </a>
                      
                    </div>
                   
