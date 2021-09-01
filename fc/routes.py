@@ -126,6 +126,14 @@ def home():
   workers = Worker.query.order_by(Worker.completed_at.desc()).paginate(page = page,  per_page=3)
   return render_template('/home.html', title='home', workers = workers)
 
+#This the route for the home page
+@app.route('/verified_worker', methods=['GET', 'POST'])
+@login_required
+def verified_worker():
+  # page = request.args.get('page', 1, type=int)
+  page = request.args.get('page', 1, type=int)
+  workers = Worker.query.order_by(Worker.completed_at.desc()).paginate(page = page,  per_page=3)
+  return render_template('/verified_worker.html', title='Verified_worker', workers = workers)
 
 
 

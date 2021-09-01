@@ -61,33 +61,7 @@
   </section><!-- End Hero -->
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <a href="{{url_for('home')}}"><img src="/static/home_style/assets/img/new/mee.jpg" alt="" class="img-fluid"></a>
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li ><a href="{{url_for('logout')}}"><span>Logout</span> </a>
-            
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                  </div>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-</div>
-    </div>
-  </header><!-- End Header -->
-
+ 
   <main id="main">
 
     <!-- ======= About Us Section ======= -->
@@ -152,71 +126,7 @@
             </div>
           </div>
         </div> -->
-        <div id="about">
-  <footer id="footer" style="padding:140px 10px">
 
-    <div  class="footer-top">
-
-        <div class="row justify-content-center" >
-          <div class="col-lg-6" >
-            <a href="{{url_for('home')}}" class="scrollto footer-logo"><img src="/static/home_style/assets/img/new/mee.jpg" alt="" style="border-radius:50px"></a>
-           <!--  <h3>FC</h3> -->
-           <!-- <h1 class="hero-title mb-4">Are you a ViDD</h1> -->
-          <p class="hero-subtitle" style="font-size: 20px"><span class="typed" data-typed-items="Hi {{current_user.username}}, Molested ?, Going through marrital crisis ?, Abused ?, Lonely? , dealing with trauma ?"></span></p>
-          </div>
-        </div>
-
-        <div class="row footer-newsletter justify-content-center" >
-          <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="e.g rape" style="border:none; outline:none; padding: 5px 30px"><input type="submit" value="search" style="padding:5px 50px;  background-color: violet">
-            </form>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="#" style="width:100px;font-size:10px; border-radius:3px; text-align: center;padding: 12px;font-weight:100;color:gray;background-color:violet;color:#fffff1; border-bottom-right-radius: 50px; border-bottom-left-radius:50px; border-top-right-radius:50px;"> Depression</a>
-           <a href="#" style="width:150px;font-size:10px; border-radius:3px; text-align: center;padding: 12px;font-weight:100;color:gray;background-color:violet;color:#fffff1; border-bottom-right-radius: 50px; border-bottom-left-radius:50px; border-top-right-radius:50px;">Disfunctional marriage</a>
-       <a href="#" style="width:100px;font-size:10px; border-radius:3px; text-align: center;padding: 12px;font-weight:100;color:gray;background-color:violet;color:#fffff1; border-bottom-right-radius: 50px; border-bottom-left-radius:50px; border-top-right-radius:50px;">Trauma</a> 
-         
-        </div>
-
-    </div>
-
-    
-  </footer>
-     </div>
-    <!-- </section> --><!-- End About Us Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-       <div class="container" data-aos="fade-up">
-        <div class="section-title text-center">
-
-          <h2 style="font-size:30px; ">Recently Verified Counsellors</h2>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100" style=" padding-left: 30px;">
-
-         
-                {% for worker in workers.items %}
-          <div class="col-md-6 col-lg-3 border-1 shadow-sm" style="max-width:300px;margin: 3px ">
-            <div class="block-pricing" style="justify-content: center;padding:10px 30px; ">
-            
-               <img src="{{url_for('static', filename='user_uploads/' + worker.fc_image)}}" style="width:205px; height:205px;border-radius: 100px; object-fit: cover;object-position: 100% 0%;" alt="About" >
-
-                 <center> 
-                    <h4 style="font-size:15px; text-align: center; margin: 20px"> {{worker.role}} # {{worker.fc_id}}</h4>
-                  
-                    <h4 style="display:flex; font-size:15px;text-align: center; margin: 20px"><img src="/static/home_style/assets/img/new/locc.png" style="width: 20px; height:20px; margin:-3px 10px"> {{worker.city}}  {{worker.country}}</h4>
-                 </center>
-                  <div class="table_btn">
-                    <a href="{{url_for('detail', fc_id = worker.id)}}" class="btn" style="margin:20px;font-size: 14px; background-color:violet;padding:10px; width:180px; height:45px;color:#ffffff;border-bottom-right-radius: 50px; border-bottom-left-radius:50px; border-top-right-radius:50px; font-weight:100"></i> View Profile</a>
-                 </div>
-              </div>
-
-          </div >
-                {% endfor %}
           <!--  <div class="col-md-6 col-lg-3 border-1 shadow-sm" style="max-width:300px;">
             <div class="block-pricing" style="justify-content: center;padding:10px 30px ">
             
@@ -268,32 +178,7 @@
               </div>
           </div > -->
 
-                  
-        </div>
-        <br>
-        <center>
-        {% for page_num in workers.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-                      {% if page_num %}
-                           {% if workers.page == page_num %}
-                            <a style="background-color: violet; color:#ffffff; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('home', page= page_num )}}">{{page_num}}</a>
-                            {% else %}
-                            <a style="border:1px solid violet; padding: 12px; border-radius:3px; margin-top:0px" href="{{url_for('home', page= page_num )}}">{{page_num}}</a>
-                            {% endif %}
-                          {% else %}
-                         
-                        ...
-                      {% endif %}
-
-                  {% endfor %}
-
-                     
-        </center>
-
-      </div>
-        
-
-      </div>
-    </section><!-- End Services Section -->
+       
 
     <!-- ======= Featured Section ======= -->
    
@@ -381,9 +266,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
+ 
 
       <!-- <div class="container">
 
@@ -414,22 +297,7 @@
       </div>
     </div> -->
 
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>FaceLess Counsellor</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/knight-free-bootstrap-theme/ -->
-        Designed by <a href="https://bootstrapmade.com/">Faceless Ebube</a>
-      </div>
-    </div>
-  </footer>
   <!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background-color: violet"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="/static/home_style/assets/vendor/aos/aos.js"></script>
