@@ -18,7 +18,7 @@
 									{% with messages= get_flashed_messages(with_categories=true) %}
 				                      {% if messages %}
 				                         {% for category, message in messages %}
-				                      <div class="alert alert border-1 shadow-sm" {{category}}"  style=" color:#000000; display: flex; font-size: 15px; text-align:center;padding-left: 40px; font-family: system-ui; font-weight: 100">
+				                      <div class="alert alert border-1 shadow-sm" {{category}}"  style=" color:#000000; display: flex; font-size: 15px; text-align:center;padding-left: 40px; font-family: system-ui; font-weight: 100; border:1px solid grey">
 				                        
 				                           {{message}}
 				                         </div>

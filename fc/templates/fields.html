@@ -142,18 +142,18 @@
             <div class="single_stuff border-1 shadow-sm wow fadeInDown" style="margin-top:-40px">
               <div class="card border-2 shadow-lg" style="background-color: #ffffff; height:130px; margin-top:30px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 15px">
                   <h2 style="font-size:18px;font-family: system-ui;font-weight: 300;"><a href="{{url_for('post_detail', post_id = post.id)}}" style="text-decoration: none">{{post.post_title}}</a></h2>
-                  <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400; text-overflow: ellipsis" >
+                  <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400; text-overflow: ellipsis; white-space: pre-line;margin-top:-13px" >
                   {{ post.post_desc | truncate(150) }}
                   <a href="{{url_for('post_detail', post_id = post.id)}}" style="color:violet; text-decoration: none">read more</a></p>
               </div>
               <center>
-              <div class="card border-2 shadow-lg">
-              <div class="single_stuff_img" style="background-color: #ffffff" > 
-                         <a >
+              <div class="card border-2 shadow-lg" style="z-index: 1">
+              <div class="single_stuff_img" style="background-color: #ffffff; z-index: -1" > 
+                         <a style="z-index: 1">
                          {% if 'mp4' in post.post_img %}
                          <center>
-                        <video  class="img-view-video border-2 shadow-lg" style="border: 1px solid #f0f0f5" controls>
-                            <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4"  class="img-view-video" allowfullscreen>
+                        <video  class="img-view-video border-2 shadow-lg" style="border: 1px solid #f0f0f5;z-index: 1;position: relative;object-fit:contain;" controls>
+                            <source src={{url_for('static', filename='user_uploads/' + post.post_img)}} type="video/mp4"  class="img-view-video" allowfullscreen style="z-index: -1; object-fit:cover">
                             Your browser does not support the video tag.
                           </video>
                           </center>
@@ -166,13 +166,13 @@
                </div>
                 </div>
             </center>
-              <div class="single_stuff_article border-1 shadow-sm" style="background-color: #ffffff;z-index: 900">
+              <div class="single_stuff_article border-1 shadow-sm" style="background-color: #ffffff;z-index: 900; position:relative;">
               
-                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;">
+                <div class="single_sarticle_inner" style="border-radius: 100px; background-color: #ffffff;padding: 5px 5px;z-index: 900">
 
-                 <a class="stuff_category" href="{{url_for('user_detail',  email = post.poster_email)}}"><img src="{{url_for('static', filename='user_uploads/' + post.poster_img)}}" style="width:70px;height:70px;border-radius: 100px;"> </a>
+                 <a class="stuff_category" href="{{url_for('user_detail',  email = post.poster_email)}}"><img src="{{url_for('static', filename='user_uploads/' + post.poster_img)}}" style="width:70px;height:70px;border-radius: 100px;z-index: 9000"> </a>
                
-                  <div class="stuff_article_inner" style="margin-top:90px"> 
+                  <div class="stuff_article_inner" style="margin-top:90px; z-index: 8000"> 
                   
                   </div>
                 
