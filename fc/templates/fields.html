@@ -141,9 +141,9 @@
               {% for post in posts.items  %}
             <div class="single_stuff border-1 shadow-sm wow fadeInDown" style="margin-top:-40px">
               <div class="card border-2 shadow-lg" style="background-color: #ffffff; height:130px; margin-top:30px;border-top-right-radius:3px;border-top-left-radius:3px; padding:5px 15px">
-                  <h2 style="font-size:18px;font-family: system-ui;font-weight: 300;"><a href="{{url_for('post_detail', post_id = post.id)}}" style="text-decoration: none">{{post.post_title}}</a></h2>
+                  <h2 style="font-size:15px;font-family: system-ui;font-weight:500;"><a href="{{url_for('post_detail', post_id = post.id)}}" style="text-decoration: none">{{post.post_title}}</a></h2>
                   <p style="color:grey; font-size:12px;font-family: system-ui;font-weight: 400; text-overflow: ellipsis; white-space: pre-line;margin-top:-13px" >
-                  {{ post.post_desc | truncate(150) }}
+                  {{ post.post_desc | truncate(100) }}
                   <a href="{{url_for('post_detail', post_id = post.id)}}" style="color:violet; text-decoration: none">read more</a></p>
               </div>
               <center>
